@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="TabbedPageTest.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:androidSpecific="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:iOsSpecific="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:tabbedPageTest="clr-namespace:TabbedPageTest"
+    androidSpecific:TabbedPage.IsSmoothScrollEnabled="false"
+    androidSpecific:TabbedPage.IsSwipePagingEnabled="False"
+    androidSpecific:TabbedPage.ToolbarPlacement="Bottom"
+    iOsSpecific:Page.UseSafeArea="true"
+    NavigationPage.HasNavigationBar="False"
+    SelectedTabColor="CornflowerBlue"
+    UnselectedTabColor="DarkGray">
+
+    <NavigationPage Title="First">
+        <x:Arguments>
+            <tabbedPageTest:FirstPage />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Page2A">
+        <x:Arguments>
+            <ContentPage NavigationPage.HasNavigationBar="False" Shell.NavBarIsVisible="false">
+                <Grid
+                    x:Name="Page2AMainGrid"
+                    HorizontalOptions="Fill"
+                    RowDefinitions="Auto,*"
+                    VerticalOptions="Fill">
+                    <Grid
+                        Grid.Row="0"
+                        BackgroundColor="Black"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill">
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Page2 Title"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </Grid>
+                    <Grid
+                        x:Name="Page2AGrid"
+                        Grid.Row="1"
+                        BackgroundColor="LightBlue"
+                        HorizontalOptions="Fill"
+                        RowDefinitions="*,*,*"
+                        VerticalOptions="Fill">
+                        <Label
+                            Grid.Row="0"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="Page2A"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            Grid.Row="1"
+                            BackgroundColor="LightCoral"
+                            FontSize="20"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Counter}"
+                            TextColor="Black"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                        <Button
+                            Grid.Row="2"
+                            BackgroundColor="SteelBlue"
+                            Clicked="Button_OnClicked"
+                            HorizontalOptions="Center"
+                            Text="Add Count"
+                            TextColor="WhiteSmoke"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Grid>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Page2B">
+        <x:Arguments>
+            <ContentPage NavigationPage.HasNavigationBar="False" Shell.NavBarIsVisible="false">
+                <Grid
+                    x:Name="Page2BMainGrid"
+                    HorizontalOptions="Fill"
+                    RowDefinitions="Auto,*"
+                    VerticalOptions="Fill">
+                    <Grid
+                        Grid.Row="0"
+                        BackgroundColor="Black"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill">
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="Page2 Title"
+                            TextColor="White"
+                            VerticalOptions="Center" />
+                    </Grid>
+                    <Grid
+                        x:Name="Page2BGrid"
+                        Grid.Row="1"
+                        BackgroundColor="LightCoral"
+                        HorizontalOptions="Fill"
+                        RowDefinitions="*,*,*"
+                        VerticalOptions="Fill">
+                        <Label
+                            Grid.Row="0"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="Page2B"
+                            VerticalOptions="Center" />
+
+                        <Label
+                            Grid.Row="1"
+                            BackgroundColor="LightBlue"
+                            FontSize="20"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Counter}"
+                            TextColor="Black"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                        <Button
+                            Grid.Row="2"
+                            BackgroundColor="SteelBlue"
+                            Clicked="Button_OnClicked"
+                            HorizontalOptions="Center"
+                            Text="Add Count"
+                            TextColor="WhiteSmoke"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Grid>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+
+    <NavigationPage Title="Last">
+        <x:Arguments>
+            <tabbedPageTest:LastPage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
